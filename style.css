@@ -3,3 +3,226 @@
     padding: 0px;
     box-sizing: border-box;
 }
+root{
+    --green : #87a243;
+    --light-green : e0ffcd;
+    box-shadow: 0 0 10px rgba(0 0 0/15%);
+}
+html{
+    font-size: 16px;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-djust: 100%;
+}
+body{
+    background-image: url('img/body-bg.jpg');
+    width: 100%;
+}
+.main{
+    width: 85vw;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+    margin: 1rem auto;
+    margin-top: 10rem;
+    padding: 2%;
+}
+a{
+    text-decoration: none;
+
+}
+.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 1rem 0;
+    line-height: 2;
+}
+.title p{
+    text-transform: capitalize;
+}
+ul{
+    list-style: none;
+}
+sup{
+    position: absolute;
+    top: 15%;
+    background: #000;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    text-align: center;
+    padding: .1rem;
+}
+.empty{
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    width: 59%;
+    padding: .5rem 1.5rem;
+    border-radius: 5px;
+    background: var(--light-green);
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+.btn{
+    line-height: 2;
+    background-color: #e0ffcd;
+    padding: 5px 35px;
+    display: inline-block;
+    border-radius: 30px;
+    color: #000;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+.btn::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    background: var(--green);
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+.btn:hover::before{
+    width: 100%;
+}
+label{
+    text-transform: capitalize;
+}
+input,
+textarea{
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: .6rem;
+    box-shadow: var(--box-shadow);
+    padding: .5rem 0;
+    border: 1px solid var(--green);
+    width: 100%;
+}
+button{
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.banner{
+    background-image: url('img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--green);
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner h1{
+    text-transform: uppercase;
+    color: #fff;
+    margin-left: 3rem;
+}
+.title2{
+    border-top: 1px solid var(--green);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    box-shadow: var(--box-shadow);
+}
+.title2 a{
+    color: var(--green);
+}
+/*-------------header------------*/
+header{
+    position: fixed;
+    top: 5%;
+    left: 7%;
+    width: 85vw;
+    padding: 1rem;
+    z-index: 101;
+    transition: .3s;
+    box-shadow: var(--box-shadow);
+    background-image: url('img/box-bg.jpg');
+}
+header .scrolled{
+    top: 0;
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+}
+.header .scrolled a:hover{
+    color: var(--green);
+}
+.flex{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+}
+.navbar a{
+    margin: 0 1rem;
+    font-size: 1rem;
+    color: #000;
+    text-transform: uppercase;
+}
+.navbar a:hover{
+    color: var(--green);
+}
+.header .icons{
+    display: flex;
+}
+.header .icons i{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000!important;
+}
+#menu.btn{
+    display: none;
+}
+.header .user-box{
+    position: absolute;
+    top: 120%;
+    right: 0;
+    box-shadow: rgb(255, 255, 255/80%);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: 1rem;
+    text-align: center;
+    width: 20rem;
+    transform: scale(0);
+    transform-origin: top right;
+    line-height: 2;
+}
+.header .user-box .btn{
+    border-radius: .5rem;
+    padding: 0 1.5rem;
+}
+.logout-btn{
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    width: 11rem;
+    border-radius: .5rem;
+    margin: .5rem 0;
+    padding: .5rem 0;
+}
+.header .user-box.active{
+     transform: scale(1.0);
+     transition: .2s linear;
+}
