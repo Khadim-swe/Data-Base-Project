@@ -1,6 +1,6 @@
 <?php 
-include 'components/connecion.php'; 
-<session_start();
+// include 'components/connecion.php'; 
+session_start();
 
 if(isset($_SESSION["user_id"])) {
     $user_id = $_SESSION["user_id"];
@@ -33,14 +33,13 @@ if (isset($_POST["submit"])) {
             echo 'confirm your password'; 
         }
         else{
-            $insert_user=$conn->prepare{"INSERT INTO'users'(id,name,email,password)VALUES(?,?,?,?)"}
+            $insert_user=$conn->prepare["INSERT INTO'users'(id,name,email,password)VALUES(?,?,?,?)"];
             $insert_user->execute([$id, $name,$email,$pass]);
             header('location: home.php');
-            $select_user=$conn->prepare{"SELECT*FROM 'users'WHERE email = ?AND password=?"};
+            $select_user=$conn->prepare["SELECT*FROM 'users'WHERE email = ?AND password=?"];
             $insert_user->execute([$email,$pass]);
-            $row=$select_user-?fetch(PDO::FETCH_ASSOC);
-            If(
-                $select_user-?rowCount() >0){
+            $row=$select_user->fetch(PDO::FETCH_ASSOC);
+            If($select_user->rowCount() >0){
                     $_section['user_id']=$row['id'];
                     $_section['user_name']=$row['name'];
                     $_section['user_email']=$row['email'];
@@ -51,9 +50,10 @@ if (isset($_POST["submit"])) {
 
 
 ?>
-<style type="text/css">
-    <?php include 'style.css'; ?>
-    </style>
+
+ <style type="text/css">
+     <?php include 'style.css'; ?>
+   </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,8 +63,9 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     <div class="main-container">
-        <div class="title:]">
-            <img src="img/download.png">
+        <section class="form-container">
+        <div class="title">
+            <img src="/img/download.png">
             <h1>register now</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam illum placeat rerum!</p>
 
@@ -83,11 +84,12 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="input-field">
                 <p>confirmpassword <sup>*</sup></p>
-                <input type="password" name="cpassword" required placeholder="Enter your password" maxlength="50"  oninput="this.value = this.value.replace(/\s?g, ' ')">
-</div>
-<input type="submit" name="submit" value="register now" class="btn">
-<p>already have an account? <a href="login.php">login now</a></p>
+                <input type="password" name="password" required placeholder="Enter your password" maxlength="50"  oninput="this.value = this.value.replace(/\s?g, ' ')">
+           </div>
+      <input type="submit" name="submit" value="register now" class="btn">
+      <p>already have an account? <a href="login.php">login now</a></p>
         </form>
+        </section>
     </div>
 
 </body>

@@ -3,10 +3,10 @@
     $db_user = 'root';
     $db_password = '';
 
-    $conn = new POO($db_name,$db_user,$db_password);
-    if($conn){
-        // echo  "connected";
-    }
+    // $conn = new PDO($db_name,$db_user,$db_password);
+    // if($conn){
+    //      echo  "connected";
+    // }
     function unique_id(){
         $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charLength = strlen($chars);

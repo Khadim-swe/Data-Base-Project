@@ -7,7 +7,7 @@ if(isset($_SESSION["user_id"])) {
    $user_id ="";
 }
 
-if(issset($_POST['logout'])){
+if(isset($_POST['logout'])){
    session_destroy();
    header("location:login.php");
 }
@@ -21,7 +21,7 @@ if(issset($_POST['logout'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' rel='stylesheet'>
     <title>Green Coffee - order page</title>
 </head>
 <body>
@@ -49,8 +49,8 @@ if(issset($_POST['logout'])){
         $select_order->execute([$user_id]);
         if($fetch_order = $select_order->fetch(PDO::FETCH_ASSOC)){
             $select_products = $conn->prepare("SELECT * FROM 'products; WHERE id=?");
-            select_product->execute([fetch_order['product_id']]);
-            if( $select_products->rowCouunt().0){
+            $select_products->execute([fetch_order['product_id']]);
+            if($select_products->rowCount()>0){
                 while($fetch_product=$select_products->fetch(PDO::FETCH_ASSOC)){
 
 
@@ -85,7 +85,7 @@ if(issset($_POST['logout'])){
         </div>
     </div>
 <?php include 'comonents/footer.php';?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="></script>
     <script src="script.js"></script>
     <?php include 'components/alert.php'; ?>
 </body>

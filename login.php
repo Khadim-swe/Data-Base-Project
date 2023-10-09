@@ -1,6 +1,6 @@
 <?php 
-include 'components/connecion.php'; 
-<session_start();
+// include 'components/connecion.php'; 
+session_start();
 
 if(isset($_SESSION["user_id"])) {
     $user_id = $_SESSION["user_id"];
@@ -45,23 +45,34 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     <div class="main-container">
-        <div class="title:]">
-            <img src="img/download.png">
+        <section class="form-container">
+        <div class="title">
+            <img src="/img/download.png">
             <h1>login now</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam illum placeat rerum!</p>
 
         </div>
         <form action="" method="post">
+
+        <div class="input-field">
+        
+
             <div class="input-field">
-                <p>your email <sup>*</sup></p>
+                <p>your Email <sup>*</sup></p>
                 <input type="email" name="email" required placeholder="Enter your email" maxlength="50" 
                 oninput="this.value = this.value.replace(/\s?g, ' ')">
+            </div>
 
+            <div class="input-field">
+                <p>your Password <sup>*</sup></p>
+                <input type="password" name="password" required placeholder="Enter your Password" maxlength="50" 
+                oninput="this.value = this.value.replace(/\s?g, ' ')">
             </div>
             
-<input type="submit" name="submit" value="register now" class="btn">
+<input type="submit" name="submit" value="login now" class="btn">
 <p>do not have an account? <a href="register.php">register now</a></p>
         </form>
+        </section>
     </div>
 
 </body>

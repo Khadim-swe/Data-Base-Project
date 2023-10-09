@@ -7,7 +7,7 @@ if(isset($_SESSION["user_id"])) {
    $user_id ="";
 }
 
-if(issset($_POST['logout'])){
+if(isset($_POST['logout'])){
    session_destroy();
    header("location:login.php");
 }
@@ -47,10 +47,10 @@ if(isset($_POST['delete_item'])){
     $wishlist_id =$_POST['wishlist_id'];
     $wishlist_id = filter_var($wishlist_id,FILTER_SANITIZE_STRING);
 
-    $varift_delete-items=$conn->prepare ("SELECT * FROM 'wishlist' WHERE id =?");
-    $varift_delete-items->execute([$wishlist_id]);
+    $varift_delete_item=$conn->prepare ("SELECT * FROM 'wishlist' WHERE id =?");
+    $varift_delete_item->execute([$wishlist_id]);
 
-    if($varift_delete-items->rowCount()>0){
+    if($varift_delete_item->rowCount()>0){
         $delete_wishlist_id = $conn->prepare("DELETE FROM 'wishlist' WHERE id =?");
         $delete_wishlist_id->execute([$wishlist_id]);
         $success_msg[] = "wishlist item delete successfully";
@@ -88,8 +88,8 @@ if(isset($_POST['delete_item'])){
         $select_wishlist->execute([$user_id]);
         if($select_wishlist->rowCOUNT()> 0){
             while($fetch_wishlist =$select_wishlist->fetch(PDO::FETCH_ASSOC)){
-                $select_products =$conn->("SELECT * FROM 'wishlist' WHERE user_id =?");
-                $select_products->execute([fetch_wishlist['product_id']]);
+                // $select_products=$conn->("SELECT * FROM 'wishlist' WHERE user_id =?");
+                $select_products->execute([$fetch_wishlist['product_id']]);
                 if($select_product->rowCount()> 0){
                     $fetch_products =$select_products->fetch(PDO::FETCH_ASSOC)
                 

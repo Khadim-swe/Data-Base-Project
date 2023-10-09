@@ -7,7 +7,7 @@ if(isset($_SESSION["user_id"])) {
    $user_id ="";
 }
 
-if(issset($_POST['logout'])){
+if(isset($_POST['logout'])){
    session_destroy();
    header("location:login.php");
 }
@@ -28,10 +28,10 @@ if(isset($_POST['delete_item'])){
     $cart_id =$_POST['cart_id'];
     $cart_id = filter_var($cart_id,FILTER_SANITIZE_STRING);
 
-    $varift_delete-items=$conn->prepare ("SELECT * FROM 'cart' WHERE id =?");
-    $varift_delete-items->execute([$wishlist_id]);
+    $varift_delete_item=$conn->prepare ("SELECT * FROM 'cart' WHERE id =?");
+    $varift_delete_item->execute([$wishlist_id]);
 
-    if($varift_delete-items->rowCount()>0){
+    if($varift_delete_item->rowCount()>0){
         $delete_cartt_id = $conn->prepare("DELETE FROM 'cart' WHERE id =?");
         $delete_cartt_id->execute([$cart_id]);
         $success_msg[] = "cartt item delete successfully";
@@ -42,7 +42,7 @@ if(isset($_POST['delete_item'])){
 
 //empty cart
 if(isset($_post['empty cart'])){
-    $verify_empty_item =$conn->prepare("SELECT * FROM 'cart' WHERE user_id =?")
+    $verify_empty_item =$conn->prepare("SELECT * FROM 'cart' WHERE user_id =?");
     $verify_empty_item ->execute([user_id]);
 
     if($verify_empty_item->rowCount() >0){
@@ -83,8 +83,8 @@ if(isset($_post['empty cart'])){
         $select_cart->execute([$user_id]);
     if($select_cart->rowCOUNT()> 0){
             while($fetch_cart =$select_cart->fetch(PDO::FETCH_ASSOC)){
-                $select_products =$conn->("SELECT * FROM 'products' WHERE user_id =?");
-                $select_products->execute([fetch_cart['product_id']]);
+                // $select_products =$conn->("SELECT * FROM 'products' WHERE user_id =?");
+                $select_products->execute([$fetch_cart['product_id']]);
                 if($select_product->rowCount()> 0){
                     $fetch_products =$select_products->fetch(PDO::FETCH_ASSOC)
                 

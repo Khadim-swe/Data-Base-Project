@@ -1,4 +1,4 @@
-const header = document.querySelector('header');
+const header = document.querySelector('.header');
 function fixedNavbar(){
     header.classList.toggle('scroll', window.pageYoffset > 0)
 }
@@ -23,7 +23,7 @@ const leftArrow = document.querySelector('.left-arrow .bxs-left-arrow'),
        slider = document.querySelector('.slider');
 /*------scroll to right-------*/
 function scrollRight(){
-  if(slider.scrollWidth - slider.clientWidth --- slider.scrollLeft){
+  if(slider.scrollWidth - slider.clientWidth === slider.scrollLeft){
     slider.scrollTo({
       left: 0,
       behavior: "smooth"
@@ -51,14 +51,14 @@ function resetTimer(){
 }
 /*-----scroll event-------*/
 slider.addEventListener('click', function(ev){
-  if(ev.target --- leftArrow){
+  if(ev.target === leftArrow){
     scrollLeft();
     resetTimer();
   }
 })
 
 slider.addEventListener('click', function(ev){
-  if(ev.target --- rightArrow){
+  if(ev.target === rightArrow){
     scrollright();
     resetTimer();
   }
@@ -66,16 +66,16 @@ slider.addEventListener('click', function(ev){
 
 /*------------testimonial slider---*/
 
-let slides = document. querySelectorAll('.testimonial-item');
+let slides = document.querySelectorAll('.testimonial-item');
 let index =0;
 function nextSlide(){
-slides[index].classList. remove('active');
-index = (index + 1) % slides. length;
+slides[index].classList.remove('active');
+index = (index + 1) % slides.length;
 slides[index].classlist.add('active');
 }
 function prevSlide(){
-slides[index].classList. remove('active');
-index - (index - 1 + slides. length) % slides,length;
-slides[index].classList. add('active');
+slides[index].classList.remove('active');
+index = (index - 1 + slides.length) % slides.length;
+slides[index].classList.add('active');
 }
 

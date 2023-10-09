@@ -1,5 +1,5 @@
 <div class="top-footer">
-    <h2><i class="bx bx-envelop"></i>sign up for Newslatter</h2>
+    <h2><i class="fa-solid fa-envelope"></i>sign up for Newslatter</h2>
     <div class="input-field">
         <input type="text" name="" placeholder="email address...">
         <button class="btn">subscribe</button>
@@ -9,7 +9,7 @@
     <div class="overlay"></div>
     <div class="footer-content">
       <div class="img-box">
-        <img src="images/img/logo2.png">
+        <img src="/img/logo2.png">
 </div>
 <div class="inner-footer">
   <div class="card">
@@ -49,11 +49,11 @@
    <h3>newsletter</h3>
    <p>sign up for Newsletter</p>
    <div class="social-links">
-     <i class="bx bxl-instagram"></i>
-     <i class="bx bxl-twitter"></i>
-     <i class="bx bxl-behance"></i>
-     <i class="bx bxl-youtube"></i>
-     <i class="bx bxl-whatsapp"></i>
+   <i class="fa-brands fa-instagram"></i>
+   <i class="fa-brands fa-twitter"></i>
+   <i class="fa-brands fa-behance"></i>
+   <i class="fa-brands fa-youtube"></i>
+   <i class="fa-brands fa-whatsapp"></i>
 </div>
   </div>
 </div>
